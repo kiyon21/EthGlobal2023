@@ -26,7 +26,7 @@ function StartPage () {
                     </ul> 
                 </div>
 
-            
+                <button class="button-86" role="button">Connect MetaMask Wallet</button>
             
             </div>
 
