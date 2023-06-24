@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import FormPage from './Pages/FormPage';
 import StartPage from './Pages/StartPage';
+import SuccessPage from './Pages/SuccessPage';
 
 
 
@@ -28,6 +29,12 @@ const router = createBrowserRouter([
     path: "formPage",
     element: <FormPage/>,
   },
+  {
+    path: "successPage",
+    element: <SuccessPage/>,
+  },
+  
+  
 ]);
 
 

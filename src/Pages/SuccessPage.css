@@ -1,0 +1,36 @@
+.SuccessPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+  }
+  
+  .success{
+      margin-top: 2em;
+      max-width: 978px;
+      display: flex;
+      padding: -2em;
+      /* box-shadow: 1px 3px 10px #e9ecef; */
+      padding: 1em;
+      background-color: black;
+      color: purple;
+      font-size: 2em;
+    }
+
+    .success .col-1{
+        margin: auto;
+        padding: 3em 0;
+      }
+      
+      .success .col-2 img{
+        width: 480px;
+        height: 100%;
+        object-fit: cover;
+        align-self: flex-end;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        display: none;
+    
+      }

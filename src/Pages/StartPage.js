@@ -21,7 +21,7 @@ function StartPage () {
                             <Link to="/formPage"><i class="fa fa-car"></i><p>Travel Splitter</p></Link>
                         </li>
                         <li>
-                            <Link to="/formPage"><i class="fa fa-credit-card"></i> <p>Travel Splitter</p></Link>
+                            <Link to="/formPage"><i class="fa fa-credit-card"></i> <p>General Transaction</p></Link>
                         </li>
                     </ul> 
                 </div>
