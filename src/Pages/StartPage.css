@@ -1,0 +1,152 @@
+.StartPage {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+  }
+  
+  .start{
+      margin-top: 2em;
+      max-width: 978px;
+      display: flex;
+      padding: -2em;
+      /* box-shadow: 1px 3px 10px #e9ecef; */
+      padding: 1em;
+      background-color: black;
+      color: purple;
+      font-size: 2em;
+    }
+  
+    .start span{
+      color: #adb5bd;
+    }
+  
+    .flex{
+      display: flex;
+      gap: 1em;
+    }
+    
+    .flex-col{
+      flex-direction: column;
+    }
+  
+    .start .col-1{
+      margin: auto;
+      padding: 3em 0;
+    }
+    
+    .start .col-2 img{
+      width: 480px;
+      height: 100%;
+      object-fit: cover;
+      align-self: flex-end;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      display: none;
+  
+    }
+  
+    @media screen and (min-width: 860px)  {
+      .start .col-2 img{
+        display: initial;
+      }
+    }
+
+
+    ul {
+        text-align: center;
+    }
+
+    li {
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        color: black;
+        padding: 0.5em;
+    }
+
+    .startbuttons {
+        display: inline-block;
+        list-style: none;
+    }
+    
+    .startbuttons a {
+        display: inline-block;
+        width: 32px;
+        text-align: center;
+    }
+
+    .startbuttons a:hover {
+        opacity: 100;
+        
+    }
+    .startbuttons a i:hover {
+        opacity: 100;
+    }
+
+    .startbuttons span {
+        display: none;
+    }
+    
+    .startbuttons{
+        margin-top: 28px;
+    }
+    
+    /*  */
+    .startbuttons li {
+        list-style-type: none;
+    }
+    
+    /*  */
+    .startbuttons li .fa {
+        transition: .6s;
+        line-height: 50px;
+    }
+
+    .startbuttons li a {
+        position:relative;
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0px 0px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: -20px;
+        transition: .6s;
+        box-shadow: 0 5px 4px purple;
+        margin-right: 10px;
+    }
+    
+    /*  */
+    .startbuttons li a:hover {
+        transform: translate(0, -10px);
+    }
+    
+    
+    .startbuttons li:nth-child(1) a {
+        color: rebeccapurple;
+        
+    }
+    /*  */
+    .startbuttons li:nth-child(2) a {
+       color: rebeccapurple;
+    }
+
+
+    /*  */
+    .startbuttons li:nth-child(1) a:hover{
+    background-color: rgb(115, 92, 188);
+    
+}
+/*  */
+.startbuttons li:nth-child(2) a:hover{
+    background-color: #0077B5;
+}
+
+
+li { 
+    font-size: medium;
+}
+
