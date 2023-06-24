@@ -2,8 +2,37 @@ import React from "react";
 import "./StartPage.css";
 import bgImg from "../img/ethereumLogo.png"
 import { Link } from "react-router-dom"
+import { MetaMaskSDK } from '@metamask/sdk';
+import { useState, useEffect } from 'react'
+import detectEthereumProvider from '@metamask/detect-provider'
 
 function StartPage () {
+    const [hasProvider, setHasProvider] = useState(null)
+    const initialState = { accounts: [] }               /* New */
+    const [wallet, setWallet] = useState(initialState)  /* New */
+
+  useEffect(() => {
+    const getProvider = async () => {
+      const provider = await detectEthereumProvider({ silent: true })
+      console.log(provider)
+      setHasProvider(Boolean(provider)) // transform provider to true or false
+    }
+
+    getProvider()
+  }, [])
+
+   const updateWallet = async (accounts:any) => {     /* New */
+    setWallet({ accounts })                          /* New */
+  }                                                  /* New */
+
+  const handleConnect = async () => {                /* New */
+    let accounts = await window.ethereum.request({   /* New */
+      method: "eth_requestAccounts",                 /* New */
+    })                                               /* New */
+    updateWallet(accounts)                           /* New */
+  }                                                  /* New */
+
+
     return (
         
         <section className="StartPage">
@@ -25,8 +54,12 @@ function StartPage () {
                         </li>
                     </ul> 
                 </div>
+                <button onClick={handleConnect}>Connect MetaMask</button>
 
-                <button class="button-86" role="button">Connect MetaMask Wallet</button>
+                <button class="button-86" role="button" onClick={handleConnect}>Connect MetaMask Wallet</button>
+                { wallet.accounts.length > 0 &&                /* New */
+        <div>Wallet Accounts: { wallet.accounts[0] }</div> //format for later
+      }
             
             </div>
 
