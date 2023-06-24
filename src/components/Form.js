@@ -116,22 +116,22 @@ export default function Form(){
                     {errors.make?.type === "required" && "Make of the car is Required"}
                     
                     <input type="text" {...register("model", {required: true})} placeholder='Model' />
-                    {errors.make?.type === "required" && "Model of the car is Required"}
+                    {errors.model?.type === "required" && "Model of the car is Required"}
 
                     <input type="text" {...register("year", {required: true})} placeholder='Year' />
-                    {errors.make?.type === "required" && "Year of the car is Required"}
+                    {errors.year?.type === "required" && "Year of the car is Required"}
 
                     
                     <input type="text" ref= 'destinationRef' {...register("sD", {required: true})} placeholder='Source Destination' />
-                    {errors.make?.type === "required" && "Source Destination of the car is Required"}
+                    {errors.sD?.type === "required" && "Source Destination of the car is Required"}
                     
                   
                     <input type="text" ref='originRef' {...register("fD", {required: true})} placeholder='Final Destination' />
-                    {errors.make?.type === "required" && "Final Destination of the car is Required"}
+                    {errors.fD?.type === "required" && "Final Destination of the car is Required"}
 
                     
                     <input type="text" {...register("peopleAmt", {required: true})} placeholder='How Many People?' />
-                    {errors.make?.type === "required" && "The amount of people going on the trip is required"}
+                    {errors.peopleAmt?.type === "required" && "The amount of people going on the trip is required"}
 
                     
       
