@@ -1,5 +1,5 @@
 import React from 'react'
-import bgImg from "../img/ethereumLogo.png"
+import bgImg from "../img/neonEth (1).png"
 import { set, useForm } from 'react-hook-form';
 import { useState } from 'react'
 import '../Pages/TransactionSplit.css';
