@@ -12,45 +12,72 @@ function PayPage () {
     const [wallet, setWallet] = useState(initialState)  
 
   useEffect(() => {
-    const refreshAccounts = (accounts: any) => {                /* New */
-      if (accounts.length > 0) {                                /* New */
-        updateWallet(accounts)                                  /* New */
-      } else {                                                  /* New */
-        // if length 0, user is disconnected                    /* New */
-        setWallet(initialState)                                 /* New */
-      }                                                         /* New */
+    const refreshAccounts = (accounts: any) => {                
+      if (accounts.length > 0) {                               
+        updateWallet(accounts)                                 
+      } else {                                                  
+        // if length 0, user is disconnected                    
+        setWallet(initialState)                                
+      }                                                       
     } 
-
     const getProvider = async () => {
       const provider = await detectEthereumProvider({ silent: true })
       console.log(provider)
       setHasProvider(Boolean(provider)) // transform provider to true or false
-      if (provider) {                                           /* New */
-      const accounts = await window.ethereum.request(         /* New */
-        { method: 'eth_accounts' }                            /* New */
-      )                                                       /* New */
-      refreshAccounts(accounts)                               /* New */
-      window.ethereum.on('accountsChanged', refreshAccounts)  /* New */
+      if (provider) {                                          
+      const accounts = await window.ethereum.request(        
+        { method: 'eth_accounts' }                         
+      )                                                     
+      refreshAccounts(accounts)                              
+      window.ethereum.on('accountsChanged', refreshAccounts)  
     } 
 }
 
     getProvider()
-    return () => {                                              /* New */
+    return () => {                                             
       window.ethereum?.removeListener('accountsChanged', refreshAccounts)
     }
   }, [])
 
    const updateWallet = async (accounts:any) => {     
     setWallet({ accounts })                          
-  }                                                  
+  }  
+  
 
-  const handleConnect = async () => {                
+  const handleConnect = async () => {              
     let accounts = await window.ethereum.request({   
       method: "eth_requestAccounts",                 
     })                                               
     updateWallet(accounts)                           
-  }                                                  
+  }
 
+  const handlePay = async () => {
+
+    let accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+    let params = [
+      {
+        from: accounts[0],
+        to: '0xd46e8dd67c5d32be8058bb8eb970870f07244567',
+        value: '0xde0b6b3a7640000', 
+      },
+    ];
+    
+    window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params,
+      })
+      .then((result) => {
+        // The result varies by RPC method.
+        // For example, this method returns a transaction hash hexadecimal string upon success.
+      })
+      .catch((error) => {
+        // If the request fails, the Promise rejects with an error.
+      });
+  } 
+  
+  
+  
 
     return (
         
@@ -63,7 +90,7 @@ function PayPage () {
                 <span>"amount"</span>
                 </div>
 
-                { window.ethereum?.isMetaMask && wallet.accounts.length < 1 &&  /* Updated */
+                { window.ethereum?.isMetaMask && wallet.accounts.length < 1 &&  
         <button class="button-85" role="button" onClick={handleConnect}>Connect MetaMask Wallet</button>
       }
 
@@ -72,7 +99,7 @@ function PayPage () {
         <div className="connected" >
             <div>Wallet Accounts: { wallet.accounts[0] }</div>
 
-            <button class="button-pay" role="button" >Pay</button>
+            <button class="button-pay" role="button" onClick={handlePay}>Pay</button>
         
             </div> //format for later
         
