@@ -82,10 +82,10 @@ const disableConnect = Boolean(wallet) && isConnecting
                 <div className="startbuttons">
                     <ul>
                         <li>
-                            <Link to="/formPage"><i class="fa fa-car"></i><p>Travel Splitter</p></Link>
+                            <Link to="/formPage"><i class="fa fa-car"></i><p>Trip Splitter</p></Link>
                         </li>
                         <li>
-                            <Link to="/transactionSplitPage"><i class="fa fa-credit-card"></i> <p>General Transaction</p></Link>
+                            <Link to="/transactionSplitPage"><i class="fa fa-credit-card"></i> <p>Fly Transactions</p></Link>
                         </li>
                     </ul> 
                 </div>
