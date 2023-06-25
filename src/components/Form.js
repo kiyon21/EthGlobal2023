@@ -15,8 +15,6 @@ var distanceFinal = "";
 var gasPrices = "";
 var finalAmt = "";
 var finalSentance = "";
-// Open AI API_KEY can't be public
-// const API_KEY = "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";
 
 
 
