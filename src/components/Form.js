@@ -16,6 +16,8 @@ var gasPrices = "";
 var finalAmt = "";
 var finalSentance = "";
 
+const API_KEY = "";
+
 
 
 
