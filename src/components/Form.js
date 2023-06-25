@@ -13,7 +13,8 @@ import axios from 'axios';
 var mileageFinal = "";
 var distanceFinal = "";
 var gasPrices = "";
-
+var finalAmt = "";
+var finalSentance = "";
 const API_KEY = "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";
 
 
@@ -50,7 +51,9 @@ async function myCallOpenAI(mydata) {
     mileageFinal = mileageFinal.match(/^\d+(\.\d+)?/)[0];
     console.log((mileageFinal));
     myCallOpenAIDistance(mydata.sD, mydata.fD);
-    gasPricesFunc(mydata.src, mydata.srcCountry)
+    gasPricesFunc(mydata.src, mydata.srcCountry);
+    finalAmt = ((mileageFinal/100) * distanceFinal * gasPrices)/mydata.peopleAmt; 
+    finalSentance = "For " + mydata.peopleAmt + " in a " + mydata.year + " " + mydata.make + " " + mydata.model + " " + mydata.trim + " each person must stake " + finalAmt + "!";
 }
 
 async function myCallOpenAIDistance(src, dest) {
@@ -107,7 +110,6 @@ async function gasPricesFunc(city, country) {
     gasPrices = gasPrices.match(/\d+(\.\d+)?/)[0];
     console.log(gasPrices);
 }
-
 
 
 export default function Form(){
