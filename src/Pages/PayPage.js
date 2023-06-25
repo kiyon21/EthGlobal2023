@@ -77,8 +77,7 @@ function PayPage () {
   } 
   
   
-  
-  }                              
+                         
   
   const currentURL = window.location.href;
   const payPageIndex = currentURL.indexOf("payPage");
