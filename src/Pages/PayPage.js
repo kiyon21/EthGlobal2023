@@ -70,7 +70,7 @@ function PayPage () {
                 
                 { wallet.accounts.length > 0 &&                
         <div className="connected" >
-            <div>Wallet Accounts: { wallet.accounts[0] }</div>
+            <div className="accountId2">Wallet Accounts: { wallet.accounts[0] }</div>
 
             <button class="button-pay" role="button" >Pay</button>
         
