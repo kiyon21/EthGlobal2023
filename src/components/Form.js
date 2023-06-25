@@ -12,6 +12,7 @@ import axios from 'axios';
  
 var mileageFinal = "";
 var distanceFinal = "";
+var gasPrices = "";
 
 const API_KEY = "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";
 
@@ -49,7 +50,7 @@ async function myCallOpenAI(mydata) {
     mileageFinal = mileageFinal.match(/^\d+(\.\d+)?/)[0];
     console.log((mileageFinal));
     myCallOpenAIDistance(mydata.sD, mydata.fD);
-
+    gasPricesFunc(mydata.src, mydata.srcCountry)
 }
 
 async function myCallOpenAIDistance(src, dest) {
@@ -78,6 +79,35 @@ async function myCallOpenAIDistance(src, dest) {
     distanceFinal = distanceFinal.replace(/\s/g, "").replace(/[a-zA-Z]/g, "");
     console.log(distanceFinal);
 }
+
+
+async function gasPricesFunc(city, country) {
+    await fetch("https://api.openai.com/v1/completions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + API_KEY
+        },
+        body: JSON.stringify({
+            "model": "text-davinci-003",
+        "prompt": "Q: What is the gas price in " + city + ", " + country + " right now. For your answer, 1. give only the number, 2. no explanation, 3. no details, 4. Have the units as $CAD/L, 5. Dont show the detials, 6. The price must be in CAD, not USD. Please abide." + "\nA:",
+        "temperature": 0,
+        "max_tokens": 100,
+        "top_p": 1,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0,
+        "stop": ["\n"]})
+    }).then((data) => data.json())
+    .then((data) => {
+        console.log(data)
+        gasPrices = data.choices[0].text;
+        console.log(data.choices[0].text);
+    });
+    console.log("OPENAI");
+    gasPrices = gasPrices.match(/\d+(\.\d+)?/)[0];
+    console.log(gasPrices);
+}
+
 
 
 export default function Form(){
@@ -129,7 +159,9 @@ export default function Form(){
                     <input type="text" ref='originRef' {...register("fD", {required: true})} placeholder='Final Destination' />
                     {errors.fD?.type === "required" && "Final Destination of the car is Required"}
 
-                    
+                    <input type="text" ref='originRef' {...register("srcCountry", {required: true})} placeholder='Source Country' />
+                    {errors.srcCountry?.type === "required" && "Source Country"}
+
                     <input type="text" {...register("peopleAmt", {required: true})} placeholder='How Many People?' />
                     {errors.peopleAmt?.type === "required" && "The amount of people going on the trip is required"}
 
@@ -143,7 +175,7 @@ export default function Form(){
                             </>
                         )
                         : 
-                        <h3>No information was returned</h3> 
+                        null
                     }
                 </form>          
             </div>
