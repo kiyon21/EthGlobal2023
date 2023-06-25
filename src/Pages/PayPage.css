@@ -19,6 +19,10 @@
     font-size: 2em;
   }
 
+  .accountId2 {
+    font-size: 0.5em;
+    margin-top: 10%;
+  }
   .pay span{
     color: #adb5bd;
   }
@@ -139,7 +143,7 @@
   width: 180px;
   height: 50px;
   font-size: 16px;
-  margin-left: 35%;
+  margin-left: 28%;
   margin-top: 3em;
   background: transparent;
   border: none;
