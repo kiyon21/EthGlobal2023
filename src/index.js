@@ -7,6 +7,9 @@ import FormPage from './Pages/FormPage';
 import StartPage from './Pages/StartPage';
 import SuccessPage from './Pages/SuccessPage';
 import TransactionSplit from './Pages/TransactionSplit';
+import PayPage from './Pages/PayPage';
+
+
 
 
 
@@ -39,6 +42,11 @@ const router = createBrowserRouter([
     path: "transactionSplitPage",
     element: <TransactionSplit/>,
   },
+  {
+    path: "payPage",
+    element: <PayPage/>,
+  },
+
 
   
   
