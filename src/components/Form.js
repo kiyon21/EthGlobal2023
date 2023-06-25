@@ -15,7 +15,7 @@ var distanceFinal = "";
 var gasPrices = "";
 var finalAmt = "";
 var finalSentance = "";
-const API_KEY = "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";
+const API_KEY = "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";
 
 
 
