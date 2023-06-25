@@ -60,7 +60,7 @@
   }
   
   .register .col-2 img{
-    width: 480px;
+    width: 300px;
     height: 100%;
     object-fit: cover;
     align-self: flex-end;
