@@ -1,11 +1,12 @@
 # MetaSplit
+*Code available on master branch*
+
+MetaSplit is a cutting-edge React application that leverages the power of AI (using the OpenAI API) and integrates with MetaMask to revolutionize group transactions, particularly for carpooling scenarios. By employing advanced algorithms and AI capabilities, MetaSplit accurately calculates equal payments, taking into account car mileage, distance traveled, and gas prices.
+
 
 # ATTENTION:
 TO RUN OUR APPLICATION, YOU NEED TO HAVE YOUR OWN OPEN AI API KEY. We commented out our own API key due to the fact that OPEN AI will deactivate our link when posted on a public repo. Thank you for your understanding. Happy coding!
 
-*Code available on master branch*
-
-MetaSplit is a cutting-edge React application that leverages the power of AI (using the OpenAI API) and integrates with MetaMask to revolutionize group transactions, particularly for carpooling scenarios. By employing advanced algorithms and AI capabilities, MetaSplit accurately calculates equal payments, taking into account car mileage, distance traveled, and gas prices.
 
 ## Key Features
 
