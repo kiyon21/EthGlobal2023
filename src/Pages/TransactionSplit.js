@@ -4,21 +4,27 @@ import { set, useForm } from 'react-hook-form';
 import { useState } from 'react'
 import '../Pages/TransactionSplit.css';
 import Header from '../components/Header.js';
+import { Link } from "react-router-dom"
 
 var finalAmt = "";
 var amtPeople = "";
 var finalSentance = "";
 
 function calc(mydata) {
+
     if (mydata.numPeople != 0) {
         finalAmt = mydata.amount / mydata.numPeople;
         amtPeople = mydata.numPeople;
-        finalSentance = "Out of " + amtPeople + " people, each person must stake " + finalAmt + "!";
-        console.log(finalSentance)
+        finalSentance = "Out of " + amtPeople + " people, each person must pay $" + finalAmt + "!";
+        console.log(finalSentance);
+
     }
     else {
         finalAmt = mydata.amount;
     }
+    
+    window.location.href = "../payPage/" + finalAmt +'/' + finalSentance;
+
 }
 
 
@@ -49,7 +55,6 @@ export default function TransactionSplit(){
                     {errors.numPeople?.type === "required" && "Number of People is Required"}
 
                     <button className='btn'>Submit</button>
-        
                     
                 </form>          
             </div>

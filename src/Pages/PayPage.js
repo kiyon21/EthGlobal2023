@@ -9,7 +9,7 @@ import detectEthereumProvider from '@metamask/detect-provider'
 function PayPage () {
     const [hasProvider, setHasProvider] = useState(null)
     const initialState = { accounts: [] }               
-    const [wallet, setWallet] = useState(initialState)  
+    const [wallet, setWallet] = useState(initialState) 
 
   useEffect(() => {
     const refreshAccounts = (accounts: any) => {                /* New */
@@ -49,7 +49,29 @@ function PayPage () {
       method: "eth_requestAccounts",                 
     })                                               
     updateWallet(accounts)                           
-  }                                                  
+  }                              
+  
+  const currentURL = window.location.href;
+  const payPageIndex = currentURL.indexOf("payPage");
+
+// Extract the part after "payPage"
+const modifiedUrl = currentURL.substring(payPageIndex + "payPage".length);
+
+// Replace %20 with spaces
+const parsedUrl = decodeURIComponent(modifiedUrl.replace(/%20/g, " "));
+
+console.log(parsedUrl);
+
+// Find the index of the second "/"
+const secondSlashIndex = parsedUrl.indexOf("/", 1);
+
+// Extract the two strings
+const string1 = parsedUrl.substring(1, secondSlashIndex);
+const string2 = parsedUrl.substring(secondSlashIndex + 1);
+
+console.log(string1); 
+console.log(string2);
+
 
 
     return (
@@ -60,7 +82,7 @@ function PayPage () {
             <div className="col-1">
             <h2>Metasplit</h2>
             <div className="payAmount">
-                <span>"amount"</span>
+                <span>{string2}</span>
                 </div>
 
                 { window.ethereum?.isMetaMask && wallet.accounts.length < 1 &&  /* Updated */

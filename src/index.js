@@ -19,6 +19,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  Router,
 } from "react-router-dom"
 
 
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     element: <TransactionSplit/>,
   },
   {
-    path: "payPage",
+    path: "payPage/:price/:sentence",
     element: <PayPage/>,
   },
 
@@ -59,6 +60,7 @@ root.render(
   //   {/*<App />*/}
   // </React.StrictMode>
   <RouterProvider router ={router}/>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

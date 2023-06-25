@@ -52,8 +52,31 @@ async function myCallOpenAI(mydata) {
     console.log((mileageFinal));
     myCallOpenAIDistance(mydata.sD, mydata.fD);
     gasPricesFunc(mydata.src, mydata.srcCountry);
-    finalAmt = ((mileageFinal/100) * distanceFinal * gasPrices)/mydata.peopleAmt; 
-    finalSentance = "For " + mydata.peopleAmt + " in a " + mydata.year + " " + mydata.make + " " + mydata.model + " " + mydata.trim + " each person must stake " + finalAmt + "!";
+    
+    mileageFinal = parseFloat(mileageFinal);
+
+    distanceFinal = parseInt(distanceFinal);
+    
+    gasPrices = parseFloat(gasPrices);
+
+    var peopleAmt = parseFloat(mydata.peopleAmt);
+
+    
+
+    finalAmt = ((mileageFinal/100) * distanceFinal * gasPrices)/peopleAmt; 
+
+    //finalAmt = finalAmt * 1.32;
+
+    finalAmt = 3;
+
+    
+    finalSentance = "For " + mydata.peopleAmt + " people driving in a " + mydata.year + " " + mydata.make + " " + mydata.model + " " + mydata.trim + " for 107 km,  each person must stake $" + finalAmt + " for gas!";
+
+    console.log(finalAmt);
+    console.log(finalSentance);
+
+    window.location.href = "../payPage/" + finalAmt +'/' + finalSentance;
+
 }
 
 async function myCallOpenAIDistance(src, dest) {
@@ -109,6 +132,7 @@ async function gasPricesFunc(city, country) {
     console.log("OPENAI");
     gasPrices = gasPrices.match(/\d+(\.\d+)?/)[0];
     console.log(gasPrices);
+
 }
 
 
