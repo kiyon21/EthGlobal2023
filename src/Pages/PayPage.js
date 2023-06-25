@@ -1,12 +1,12 @@
 import React from "react";
-import "./StartPage.css";
+import "./PayPage.css";
 import bgImg from "../img/ethereumLogo.png"
 import { Link } from "react-router-dom"
 import { MetaMaskSDK } from '@metamask/sdk';
 import { useState, useEffect } from 'react'
 import detectEthereumProvider from '@metamask/detect-provider'
 
-function StartPage () {
+function PayPage () {
     const [hasProvider, setHasProvider] = useState(null)
     const initialState = { accounts: [] }               
     const [wallet, setWallet] = useState(initialState)  
@@ -54,32 +54,28 @@ function StartPage () {
 
     return (
         
-        <section className="StartPage">
-            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-        <div className="start">
+        <section className="PayPage">
+        <div className="pay">
             
             <div className="col-1">
-            <h2>MetaSplit</h2>
-            <div className="subSocial">
-                <span>What would you like to split?</span>
+            <h2>Metasplit</h2>
+            <div className="payAmount">
+                <span>"amount"</span>
                 </div>
-                <div className="startbuttons">
-                    <ul>
-                        <li>
-                            <Link to="/formPage"><i class="fa fa-car"></i><p>Travel Splitter</p></Link>
-                        </li>
-                        <li>
-                            <Link to="/transactionSplitPage"><i class="fa fa-credit-card"></i> <p>General Transaction</p></Link>
-                        </li>
-                    </ul> 
-                </div>
+
                 { window.ethereum?.isMetaMask && wallet.accounts.length < 1 &&  /* Updated */
-        <button class="button-86" role="button" onClick={handleConnect}>Connect MetaMask Wallet</button>
+        <button class="button-85" role="button" onClick={handleConnect}>Connect MetaMask Wallet</button>
       }
 
                 
                 { wallet.accounts.length > 0 &&                
-        <div className="accountId">Wallet Accounts: { wallet.accounts[0] }</div> //format for later
+        <div className="connected" >
+            <div>Wallet Accounts: { wallet.accounts[0] }</div>
+
+            <button class="button-pay" role="button" >Pay</button>
+        
+            </div> //format for later
+        
       }
             
             </div>
@@ -92,4 +88,4 @@ function StartPage () {
     </section>
     )
 }
-export default StartPage;
+export default PayPage;

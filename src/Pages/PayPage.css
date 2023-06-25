@@ -1,0 +1,159 @@
+.PayPage {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+}
+
+.pay{
+    margin-top: 2em;
+    max-width: 978px;
+    display: flex;
+    padding: -2em;
+    /* box-shadow: 1px 3px 10px #e9ecef; */
+    padding: 1em;
+    background-color: black;
+    color: purple;
+    font-size: 2em;
+  }
+
+  .pay span{
+    color: #adb5bd;
+  }
+
+  .flex{
+    display: flex;
+    gap: 1em;
+  }
+  
+  .flex-col{
+    flex-direction: column;
+  }
+
+  .pay .col-1{
+    margin: auto;
+    padding: 3em 0;
+  }
+  
+  .pay .col-2 img{
+    width: 480px;
+    height: 100%;
+    object-fit: cover;
+    align-self: flex-end;
+    padding-left: 15%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+
+  }
+
+  @media screen and (min-width: 860px)  {
+    .pay .col-2 img{
+      display: initial;
+    }
+  }
+
+
+
+/* CSS */
+.button-85{
+  all: unset;
+  width: 180px;
+  height: 50px;
+  font-size: 16px;
+  margin-left: 0%;
+  margin-top: 3em;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85::after,
+.button-85::before, 
+.button-pay::after,
+.button-pay::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all .4s;
+}
+
+.button-85::before,
+.button-pay::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: rebeccapurple;
+  border-radius: 10px;
+}
+
+.button-85::after,
+.button-pay::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: purple;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-85:hover::before,
+.button-pay:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-85:hover::after,
+.button-pay:hover::after  {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-85:active::after,
+.button-pay:active::after  {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+.button-pay{
+  all: unset;
+  width: 180px;
+  height: 50px;
+  font-size: 16px;
+  margin-left: 35%;
+  margin-top: 3em;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+

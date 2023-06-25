@@ -18,6 +18,10 @@
       color: purple;
       font-size: 2em;
     }
+
+    .accountId{
+      font-size: 0.5em;
+    }
   
     .start span{
       color: #adb5bd;
@@ -70,6 +74,7 @@
     .startbuttons {
         display: inline-block;
         list-style: none;
+        margin-right: 10%;
     }
     
     .startbuttons a {

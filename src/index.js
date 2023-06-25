@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import FormPage from './Pages/FormPage';
 import StartPage from './Pages/StartPage';
 import SuccessPage from './Pages/SuccessPage';
+import TransactionSplit from './Pages/TransactionSplit';
 
 
 
@@ -16,6 +17,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom"
+
 
 
 
@@ -33,6 +35,11 @@ const router = createBrowserRouter([
     path: "successPage",
     element: <SuccessPage/>,
   },
+  {
+    path: "transactionSplitPage",
+    element: <TransactionSplit/>,
+  },
+
   
   
 ]);
