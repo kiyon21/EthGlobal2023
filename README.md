@@ -5,7 +5,8 @@ MetaSplit is a cutting-edge React application that leverages the power of AI (us
 
 
 # ATTENTION:
-TO RUN OUR APPLICATION, YOU NEED TO HAVE YOUR OWN OPEN AI API KEY. We commented out our own API key due to the fact that OPEN AI will deactivate our link when posted on a public repo. Thank you for your understanding. Happy coding!
+TO RUN OUR APPLICATION, YOU NEED TO HAVE YOUR OWN OPEN-AI API KEY. We commented out our own API key due to the fact that OPEN-AI will deactivate our link when posted on a public repo. Thank you for your understanding. Happy coding!
+In the master branch under src/components/form.js there is a const API_KEY variable, that is where your OPEN-AI API key should go.
 
 
 ## Key Features
